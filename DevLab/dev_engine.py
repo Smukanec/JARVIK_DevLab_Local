@@ -9,9 +9,10 @@ from __future__ import annotations
 import json
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, List
 
 from .pipeline import Pipeline
+from .knowledge_db import KnowledgeDB
 
 _CONFIG_PATH = Path(__file__).with_name("devlab_config.json")
 
@@ -46,6 +47,8 @@ class DevEngine:
         self.log_dir.mkdir(exist_ok=True)
         self.knowledge_dir.mkdir(exist_ok=True)
 
+        self.knowledge_db = KnowledgeDB(self.knowledge_dir)
+
         self.pipeline = Pipeline(self.config.get("url", ""), self.log_dir)
 
     def _store_context(self, prompt: str, result: str) -> None:
@@ -71,6 +74,9 @@ class DevEngine:
         """Process a prompt through the pipeline."""
         result = self.pipeline.run(prompt)
         self._store_context(prompt, result)
+        self.knowledge_db.add_entry(
+            prompt, result, ["programování", "technologie"]
+        )
         if log:
             self._log_output(result)
         return result
