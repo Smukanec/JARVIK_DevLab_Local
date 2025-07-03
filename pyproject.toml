@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jarvik-devlab"
+version = "0.1.0"
+description = "Development layer for Jarvik"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Jarvik Developers", email = "devs@example.com"}
+]
+dependencies = ["requests"]
+
+[tool.setuptools]
+package-dir = {"" = "src", "DevLab" = "DevLab"}
+packages = ["devlab", "DevLab"]
