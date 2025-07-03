@@ -17,8 +17,12 @@ git clone https://github.com/your-org/jarvik-devlab.git
 cd jarvik-devlab
 ```
 2. (optional) Create a virtual environment and activate it
-3. Run `./install.sh` to install the package locally
-4. Run `./upgrade.sh` anytime to update to the newest release
+3. Install Python dependencies
+```bash
+pip install -r requirements.txt
+```
+4. Run `./install.sh` to install the package locally
+5. Run `./upgrade.sh` anytime to update to the newest release
 
 ### Basic usage
 ```python
@@ -57,8 +61,12 @@ git clone https://github.com/your-org/jarvik-devlab.git
 cd jarvik-devlab
 ```
 2. (volitelně) Vytvořte a aktivujte virtuální prostředí
-3. Spusťte `./install.sh` pro lokální instalaci balíčku
-4. Pro aktualizaci na nejnovější verzi použijte `./upgrade.sh`
+3. Nainstalujte Python závislosti
+```bash
+pip install -r requirements.txt
+```
+4. Spusťte `./install.sh` pro lokální instalaci balíčku
+5. Pro aktualizaci na nejnovější verzi použijte `./upgrade.sh`
 
 ### Základní použití
 ```python
