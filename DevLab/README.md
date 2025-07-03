@@ -33,4 +33,7 @@ print(response)
 ```
 
 The connection URL to the Jarvik API can be adjusted in
-`DevLab/devlab_config.json`.
+`DevLab/devlab_config.json`. The same file also accepts optional keys
+`memory_path` and `knowledge_path` for customizing where prompt history
+and knowledge data are stored. Both default to local folders
+`dev_memory/` and `knowledge_db/` if omitted.
