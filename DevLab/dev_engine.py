@@ -29,14 +29,27 @@ class DevEngine:
     def __init__(self, config_path: Path | None = None) -> None:
         cfg_path = config_path or _CONFIG_PATH
         self.config = _load_config(cfg_path)
-        self.memory_dir = Path(__file__).with_name("dev_memory")
+
+        mem_path = self.config.get("memory_path", "dev_memory")
+        self.memory_dir = Path(mem_path)
+        if not self.memory_dir.is_absolute():
+            self.memory_dir = Path(__file__).with_name(mem_path)
+
+        know_path = self.config.get("knowledge_path", "knowledge_db")
+        self.knowledge_dir = Path(know_path)
+        if not self.knowledge_dir.is_absolute():
+            self.knowledge_dir = Path(__file__).with_name(know_path)
+
         self.log_dir = Path(__file__).with_name("logs")
+
         self.memory_dir.mkdir(exist_ok=True)
         self.log_dir.mkdir(exist_ok=True)
+        self.knowledge_dir.mkdir(exist_ok=True)
+
         self.pipeline = Pipeline(self.config.get("url", ""), self.log_dir)
 
     def _store_context(self, prompt: str, result: str) -> None:
-        """Persist prompt and result into the dev_memory directory."""
+        """Persist prompt and result into the memory directory."""
         timestamp = datetime.utcnow().strftime("%Y%m%d%H%M%S")
         entry = {
             "prompt": prompt,
