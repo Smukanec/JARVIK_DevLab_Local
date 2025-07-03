@@ -33,6 +33,17 @@ code = manager.run("Create a simple Hello World application")
 print(code)
 ```
 
+### Command line interface
+You can also interact with DevLab directly from a terminal. After installing the
+package, run:
+
+```bash
+devlab-cli "Create a simple Hello World application"
+```
+
+Omitting the prompt starts an interactive mode where you can enter multiple
+prompts one by one.
+
 ### Exporting data
 You can save DevLab context for later review:
 
@@ -84,6 +95,15 @@ manager = DevLabManager()
 code = manager.run("Vytvoř jednoduchou aplikaci Hello World")
 print(code)
 ```
+
+### Příkazová řádka
+DevLab můžete ovládat i z terminálu. Po instalaci spusťte:
+
+```bash
+devlab-cli "Vytvoř jednoduchou aplikaci Hello World"
+```
+
+Bez zadaného promptu se spustí interaktivní režim pro více dotazů.
 
 ### Jak přispět
 Budeme rádi za pull requesty. Forkněte repozitář, vytvořte větev a odešlete návrh ke schválení.
