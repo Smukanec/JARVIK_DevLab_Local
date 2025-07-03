@@ -80,3 +80,30 @@ class DevEngine:
         if log:
             self._log_output(result)
         return result
+
+    def export_memory(self, path: str | Path | None = None) -> Path:
+        """Export memory directory as a zip archive.
+
+        Parameters
+        ----------
+        path:
+            Optional output file path. Defaults to ``memory_export.zip`` in the
+            current working directory.
+        """
+        out_path = Path(path or "memory_export.zip")
+        if not out_path.is_absolute():
+            out_path = Path.cwd() / out_path
+
+        import zipfile
+
+        with zipfile.ZipFile(out_path, "w") as zf:
+            for file in sorted(self.memory_dir.glob("*.json")):
+                zf.write(file, arcname=file.name)
+        return out_path
+
+    def export_knowledge(self, path: str | Path | None = None) -> Path:
+        """Export the knowledge database as a single JSON file."""
+        out_path = Path(path or "knowledge_export.json")
+        if not out_path.is_absolute():
+            out_path = Path.cwd() / out_path
+        return self.knowledge_db.export(out_path)
