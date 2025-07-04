@@ -47,16 +47,24 @@ class Pipeline:
         """
         payload: Dict[str, Any] = {"model": model, "prompt": prompt}
         try:
-            resp = requests.post(f"{self.base_url}/run", json=payload, timeout=60)
+            resp = requests.post(
+                f"{self.base_url}/run", json=payload, timeout=60
+            )
             resp.raise_for_status()
             data = resp.json()
             return data.get("output", "")
         except requests.HTTPError as exc:
-            self.logger.error("HTTP error running model %s: %s", model, exc)
-        except requests.RequestException as exc:
-            self.logger.error("Request failed for model %s: %s", model, exc)
-        except Exception as exc:  # JSON decode or unexpected issues
-            self.logger.error("Unexpected error running model %s: %s", model, exc)
+            status = getattr(exc.response, "status_code", "unknown")
+            msg = getattr(exc.response, "text", str(exc))
+            self.logger.error(
+                "HTTP error running model %s (status %s): %s", model, status, msg
+            )
+        except requests.RequestException:
+            # network or timeout related errors
+            self.logger.exception("Request failed for model %s", model)
+        except Exception:
+            # JSON decode or other unexpected errors
+            self.logger.exception("Unexpected error running model %s", model)
         return ""
 
     def _log_selection(self, language: str, models: List[str]) -> None:
