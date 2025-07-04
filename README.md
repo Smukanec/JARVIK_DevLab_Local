@@ -16,13 +16,17 @@
 git clone https://github.com/your-org/jarvik-devlab.git
 cd jarvik-devlab
 ```
-2. (optional) Create a virtual environment and activate it
+2. Create and activate a Python virtual environment. This is required on systems
+   that implement [PEP 668](https://peps.python.org/pep-0668/) with an
+   externally managed Python installation.
 3. Install Python dependencies
 ```bash
 pip install -r requirements.txt
 ```
-4. Run `./install.sh` to install the package locally
-5. Run `./upgrade.sh` anytime to update to the newest release
+4. With the virtual environment still active, run `./install.sh` to install the
+   package locally
+5. To update to the newest release, activate your virtual environment and run
+   `./upgrade.sh`
 
 ### Basic usage
 ```python
@@ -79,13 +83,16 @@ This project is released under the [MIT License](LICENSE).
 git clone https://github.com/your-org/jarvik-devlab.git
 cd jarvik-devlab
 ```
-2. (volitelně) Vytvořte a aktivujte virtuální prostředí
+2. Vytvořte a aktivujte virtuální prostředí (na systémech s
+   [PEP 668](https://peps.python.org/pep-0668/) je to nutné)
 3. Nainstalujte Python závislosti
 ```bash
 pip install -r requirements.txt
 ```
-4. Spusťte `./install.sh` pro lokální instalaci balíčku
-5. Pro aktualizaci na nejnovější verzi použijte `./upgrade.sh`
+4. Se stále aktivním virtuálním prostředím spusťte `./install.sh` pro lokální
+   instalaci balíčku
+5. Pro aktualizaci na nejnovější verzi aktivujte virtuální prostředí a
+   spusťte `./upgrade.sh`
 
 ### Základní použití
 ```python
