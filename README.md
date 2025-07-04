@@ -18,7 +18,8 @@ cd jarvik-devlab
 ```
 2. Create and activate a Python virtual environment. This is required on systems
    that implement [PEP 668](https://peps.python.org/pep-0668/) with an
-   externally managed Python installation.
+   externally managed Python installation. Keep the environment active when
+   running `install.sh` or `upgrade.sh`.
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
@@ -86,8 +87,9 @@ This project is released under the [MIT License](LICENSE).
 git clone https://github.com/your-org/jarvik-devlab.git
 cd jarvik-devlab
 ```
-2. Vytvořte a aktivujte virtuální prostředí (na systémech s
-   [PEP 668](https://peps.python.org/pep-0668/) je to nutné)
+2. Vytvořte a aktivujte virtuální prostředí. Na systémech s
+   [PEP 668](https://peps.python.org/pep-0668/) je to nutné. Prostředí
+   ponechte aktivní při spouštění `install.sh` nebo `upgrade.sh`.
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate

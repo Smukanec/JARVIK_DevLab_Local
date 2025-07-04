@@ -18,7 +18,7 @@ sys.exit(1)
 EOF
     then
         echo "Warning: detected externally managed Python installation." >&2
-        echo "Create and activate a virtual environment before running install.sh." >&2
+        echo "Create and activate a virtual environment before running install.sh or upgrade.sh." >&2
     fi
 fi
 
