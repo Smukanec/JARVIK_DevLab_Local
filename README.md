@@ -19,14 +19,17 @@ cd jarvik-devlab
 2. Create and activate a Python virtual environment. This is required on systems
    that implement [PEP 668](https://peps.python.org/pep-0668/) with an
    externally managed Python installation.
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
 3. Install Python dependencies
 ```bash
 pip install -r requirements.txt
 ```
 4. With the virtual environment still active, run `./install.sh` to install the
    package locally
-5. To update to the newest release, activate your virtual environment and run
-   `./upgrade.sh`
+5. With the virtual environment active, run `./upgrade.sh` to update to the newest release
 
 ### Basic usage
 ```python
@@ -85,6 +88,10 @@ cd jarvik-devlab
 ```
 2. Vytvořte a aktivujte virtuální prostředí (na systémech s
    [PEP 668](https://peps.python.org/pep-0668/) je to nutné)
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
 3. Nainstalujte Python závislosti
 ```bash
 pip install -r requirements.txt
