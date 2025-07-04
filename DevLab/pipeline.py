@@ -10,6 +10,7 @@ from __future__ import annotations
 from typing import Any, Dict, List
 from pathlib import Path
 from datetime import datetime
+import logging
 import requests
 
 from .utils import detect_language
@@ -22,6 +23,17 @@ class Pipeline:
         self.base_url = base_url.rstrip("/")
         self.log_dir = log_dir or Path(__file__).with_name("logs")
         self.log_dir.mkdir(exist_ok=True)
+
+        # initialize logger for recording pipeline issues
+        self.logger = logging.getLogger(__name__)
+        if not self.logger.handlers:
+            handler = logging.FileHandler(self.log_dir / "errors.log")
+            handler.setFormatter(
+                logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
+            )
+            self.logger.addHandler(handler)
+        self.logger.setLevel(logging.INFO)
+        self.logger.propagate = False
 
     def _run_model(self, model: str, prompt: str) -> str:
         """Call a Jarvik model and return its output.
@@ -39,9 +51,13 @@ class Pipeline:
             resp.raise_for_status()
             data = resp.json()
             return data.get("output", "")
-        except requests.RequestException:
-            # In case of connection issues or invalid responses, return empty string
-            return ""
+        except requests.HTTPError as exc:
+            self.logger.error("HTTP error running model %s: %s", model, exc)
+        except requests.RequestException as exc:
+            self.logger.error("Request failed for model %s: %s", model, exc)
+        except Exception as exc:  # JSON decode or unexpected issues
+            self.logger.error("Unexpected error running model %s: %s", model, exc)
+        return ""
 
     def _log_selection(self, language: str, models: List[str]) -> None:
         """Write the chosen language and models into the log directory."""
