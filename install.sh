@@ -17,8 +17,9 @@ for parent in [p] + list(p.parents):
 sys.exit(1)
 EOF
     then
-        echo "Warning: detected externally managed Python installation." >&2
+        echo "Error: detected externally managed Python installation." >&2
         echo "Create and activate a virtual environment before running install.sh or upgrade.sh." >&2
+        exit 1
     fi
 fi
 
