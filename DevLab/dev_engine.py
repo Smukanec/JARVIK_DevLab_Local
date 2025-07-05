@@ -19,7 +19,10 @@ _CONFIG_PATH = Path(__file__).with_name("devlab_config.json")
 
 def _load_config(path: Path) -> Dict[str, Any]:
     if not path.exists():
-        raise FileNotFoundError(f"Missing configuration file: {path}")
+        raise FileNotFoundError(
+            f"Configuration file not found: {path}. "
+            "Run install.sh or pass --config to devlab-cli."
+        )
     with path.open("r", encoding="utf-8") as fh:
         return json.load(fh)
 
