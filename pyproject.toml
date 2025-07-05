@@ -14,12 +14,12 @@ authors = [
 dependencies = ["requests"]
 
 [tool.setuptools]
-package-dir = {"" = "src", "DevLab" = "DevLab"}
-packages = ["devlab", "DevLab"]
+package-dir = {"" = "src"}
+packages = ["devlab"]
 
 [tool.setuptools.package-data]
-"DevLab" = ["devlab_config.json", "ui/*.html"]
+"devlab" = ["devlab_config.json", "ui/*.html"]
 
 [project.scripts]
-devlab-cli = "DevLab.cli:main"
-devlab-server = "src.app:main"
+devlab-cli = "devlab.cli:main"
+devlab-server = "devlab.app:main"
