@@ -33,4 +33,4 @@ else
     ./install.sh
 fi
 
-python -m DevLab.cli "$@"
+python3 -m DevLab.cli "$@"
