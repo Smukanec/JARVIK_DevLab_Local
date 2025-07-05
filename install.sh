@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Simple installation script for jarvik-devlab
+# Simple installation script for devlab
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -30,4 +30,4 @@ python3 -m pip install --upgrade pip
 # Install the package from source
 python3 -m pip install .
 
-echo "jarvik-devlab installed successfully"
+echo "devlab installed successfully"

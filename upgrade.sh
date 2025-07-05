@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Upgrade jarvik-devlab to the latest available version
+# Upgrade devlab to the latest available version
 set -euo pipefail
 
 # Exit if running under an externally managed Python without virtualenv
@@ -21,6 +21,6 @@ EOF
 fi
 
 # Upgrade the package via pip
-python3 -m pip install --upgrade jarvik-devlab
+python3 -m pip install --upgrade devlab
 
-echo "jarvik-devlab upgraded successfully"
+echo "devlab upgraded successfully"
