@@ -17,5 +17,8 @@ dependencies = ["requests"]
 package-dir = {"" = "src", "DevLab" = "DevLab"}
 packages = ["devlab", "DevLab"]
 
+[tool.setuptools.package-data]
+"DevLab" = ["devlab_config.json", "ui/*.html"]
+
 [project.scripts]
 devlab-cli = "DevLab.cli:main"
