@@ -66,6 +66,16 @@ You can save DevLab context for later review:
 
 Open `DevLab/ui/devlab_ui.html` and use the provided links, or call the methods directly in your Python code.
 
+### Web server and UI
+Start the bundled FastAPI server with:
+
+```bash
+devlab-server
+```
+
+The server listens on `http://127.0.0.1:8000`. Open
+`http://127.0.0.1:8000/devlab_ui.html` in your browser to use the UI.
+
 ### Contributing
 Contributions are welcome! Fork the repository, create a feature branch and open a pull request.
 
@@ -131,6 +141,15 @@ devlab-cli "Vytvoř jednoduchou aplikaci Hello World"
 ```
 
 Bez zadaného promptu se spustí interaktivní režim pro více dotazů.
+
+### Webový server
+Server spustíte příkazem:
+
+```bash
+devlab-server
+```
+
+Poté otevřete `http://127.0.0.1:8000/devlab_ui.html` ve webovém prohlížeči.
 
 ### Jak přispět
 Budeme rádi za pull requesty. Forkněte repozitář, vytvořte větev a odešlete návrh ke schválení.
