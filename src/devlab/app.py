@@ -6,12 +6,12 @@ from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
-from DevLab.dev_engine import DevEngine
+from devlab.dev_engine import DevEngine
 
 app = FastAPI()
 
-# Serve the minimal UI bundled in DevLab/ui
-_UI_DIR = Path(__file__).resolve().parent.parent / "DevLab" / "ui"
+# Serve the minimal UI bundled in devlab/ui
+_UI_DIR = Path(__file__).resolve().parent / "ui"
 app.mount("/", StaticFiles(directory=_UI_DIR), name="static")
 
 
@@ -43,7 +43,7 @@ def main() -> None:
     """Entry point for the ``devlab-server`` console script."""
     import uvicorn
 
-    uvicorn.run("src.app:app")
+    uvicorn.run("devlab.app:app")
 
 
 if __name__ == "__main__":

@@ -1,2 +1,2 @@
-include DevLab/devlab_config.json
-recursive-include DevLab/ui *.html
+include src/devlab/devlab_config.json
+recursive-include src/devlab/ui *.html

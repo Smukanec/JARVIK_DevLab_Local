@@ -64,7 +64,7 @@ You can save DevLab context for later review:
 * **Export memory** – compresses the `dev_memory/` directory into a `memory_export.zip` archive by calling `DevEngine.export_memory()`.
 * **Export knowledge** – collects all entries from `knowledge_db/` into `knowledge_export.json` using `DevEngine.export_knowledge()`.
 
-Open `DevLab/ui/devlab_ui.html` and use the provided links, or call the methods directly in your Python code.
+Open `devlab/ui/devlab_ui.html` and use the provided links, or call the methods directly in your Python code.
 
 ### Web server and UI
 Start the bundled FastAPI server with:

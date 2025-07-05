@@ -1,15 +1,10 @@
-import importlib.util
 import pathlib
-
+import sys
 import pytest
 
-# Load the utils module directly to avoid importing the whole DevLab package
-_utils_path = pathlib.Path(__file__).resolve().parents[1] / "DevLab" / "utils.py"
-spec = importlib.util.spec_from_file_location("DevLab.utils", _utils_path)
-_utils = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(_utils)
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 
-detect_language = _utils.detect_language
+from devlab.utils import detect_language
 
 @pytest.mark.parametrize(
     "prompt,expected",

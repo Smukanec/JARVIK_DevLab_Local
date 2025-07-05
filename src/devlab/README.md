@@ -25,7 +25,7 @@ The DevLab module can be imported from other applications such as
 `Jarvik_W`:
 
 ```python
-from DevLab.dev_engine import DevEngine
+from devlab.dev_engine import DevEngine
 
 engine = DevEngine()
 response = engine.run("Generate hello world")
@@ -33,7 +33,7 @@ print(response)
 ```
 
 The connection URL to the Jarvik API can be adjusted in
-`DevLab/devlab_config.json`. The same file also accepts optional keys
+`devlab/devlab_config.json`. The same file also accepts optional keys
 `memory_path` and `knowledge_path` for customizing where prompt history
 and knowledge data are stored. Both default to local folders
 `dev_memory/` and `knowledge_db/` if omitted.
