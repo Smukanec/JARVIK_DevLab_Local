@@ -72,6 +72,7 @@ Start the bundled FastAPI server with:
 ```bash
 devlab-server
 ```
+This command launches `uvicorn` with the ``src.app:app`` application.
 
 The server listens on `http://127.0.0.1:8000`. Open
 `http://127.0.0.1:8000/devlab_ui.html` in your browser to use the UI.
@@ -148,6 +149,7 @@ Server spustíte příkazem:
 ```bash
 devlab-server
 ```
+Příkaz spustí `uvicorn` s aplikací ``src.app:app``.
 
 Poté otevřete `http://127.0.0.1:8000/devlab_ui.html` ve webovém prohlížeči.
 
