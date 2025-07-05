@@ -13,8 +13,8 @@
 ### Installation
 1. Clone this repository
 ```bash
-git clone https://github.com/your-org/jarvik-devlab.git
-cd jarvik-devlab
+git clone https://github.com/your-org/devlab.git
+cd devlab
 ```
 2. Create and activate a Python virtual environment. This is required on systems
    that implement [PEP 668](https://peps.python.org/pep-0668/) with an
@@ -72,7 +72,7 @@ Start the bundled FastAPI server with:
 ```bash
 devlab-server
 ```
-This command launches `uvicorn` with the ``src.app:app`` application.
+This command launches `uvicorn` with the ``devlab.app:app`` application.
 
 The server listens on `http://127.0.0.1:8000`. Open
 `http://127.0.0.1:8000/devlab_ui.html` in your browser to use the UI.
@@ -101,8 +101,8 @@ This project is released under the [MIT License](LICENSE).
 ### Instalace
 1. Naklonujte tento repozitář
 ```bash
-git clone https://github.com/your-org/jarvik-devlab.git
-cd jarvik-devlab
+git clone https://github.com/your-org/devlab.git
+cd devlab
 ```
 2. Vytvořte a aktivujte virtuální prostředí. Na systémech s
    [PEP 668](https://peps.python.org/pep-0668/) je to nutné. Prostředí
@@ -149,7 +149,7 @@ Server spustíte příkazem:
 ```bash
 devlab-server
 ```
-Příkaz spustí `uvicorn` s aplikací ``src.app:app``.
+Příkaz spustí `uvicorn` s aplikací ``devlab.app:app``.
 
 Poté otevřete `http://127.0.0.1:8000/devlab_ui.html` ve webovém prohlížeči.
 
