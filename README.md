@@ -34,9 +34,9 @@ pip install -r requirements.txt
 5. With the virtual environment active, run `./upgrade.sh` to update to the newest release
 
 You can optionally start DevLab using the helper script `./devlab_venv.sh`. The
-script creates (or reuses) a local `.venv`, installs the dependencies, runs
-`install.sh` and then launches `devlab-cli`. The `upgrade.sh` script still
-expects an active virtual environment or you can extend the helper to call it.
+script creates (or reuses) a local `.venv`, installs the dependencies and runs
+`install.sh` by default before launching `devlab-cli`. Pass `upgrade` as the
+first argument to have the helper run `upgrade.sh` instead of `install.sh`.
 
 ### Basic usage
 ```python
@@ -110,10 +110,9 @@ pip install -r requirements.txt
    spusťte `./upgrade.sh`
 
 Pro rychlý start můžete použít pomocný skript `./devlab_venv.sh`. Ten
-vytvoří (nebo znovu použije) lokální adresář `.venv`, nainstaluje závislosti,
-spustí `install.sh` a následně `devlab-cli`. Skript `upgrade.sh` stále
-předpokládá aktivní virtuální prostředí, případně můžete jeho volání
-integrovat do tohoto skriptu.
+vytvoří (nebo znovu použije) lokální adresář `.venv`, nainstaluje závislosti a
+standardně spustí `install.sh` před spuštěním `devlab-cli`. Pokud jako první
+argument předáte `upgrade`, skript místo toho spustí `upgrade.sh`.
 
 ### Základní použití
 ```python
