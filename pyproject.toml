@@ -22,3 +22,4 @@ packages = ["devlab", "DevLab"]
 
 [project.scripts]
 devlab-cli = "DevLab.cli:main"
+devlab-server = "src.app:main"
