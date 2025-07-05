@@ -56,7 +56,8 @@ class DevEngine:
 
     def _store_context(self, prompt: str, result: str) -> None:
         """Persist prompt and result into the memory directory."""
-        timestamp = datetime.utcnow().strftime("%Y%m%d%H%M%S")
+        # use microsecond precision to avoid collisions when called quickly
+        timestamp = datetime.utcnow().strftime("%Y%m%d%H%M%S%f")
         entry = {
             "prompt": prompt,
             "result": result,

@@ -27,7 +27,9 @@ class KnowledgeDB:
         topics:
             Optional list of topics associated with the entry.
         """
-        timestamp = datetime.utcnow().strftime("%Y%m%d%H%M%S")
+        # microsecond precision prevents overwriting files when entries are added
+        # in quick succession
+        timestamp = datetime.utcnow().strftime("%Y%m%d%H%M%S%f")
         entry = {
             "prompt": prompt,
             "result": result,
