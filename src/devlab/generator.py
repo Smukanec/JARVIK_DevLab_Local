@@ -6,7 +6,8 @@ class CodeGenerator:
     def generate(self, prompt: str) -> str:
         """Return generated code for the given prompt.
 
-        TODO: Replace with integration to an AI model.
+        This minimal implementation simply echoes the prompt back prefixed
+        with a comment marker. It provides a working placeholder until
+        integration with an AI model is available.
         """
-        # For now just return an empty string to avoid errors.
-        return ""
+        return f"# Generated code\n{prompt}"
