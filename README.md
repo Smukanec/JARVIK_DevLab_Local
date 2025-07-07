@@ -83,6 +83,16 @@ This command launches `uvicorn` with the ``devlab.app:app`` application.
 The server listens on `http://127.0.0.1:8000`. Open
 `http://127.0.0.1:8000/devlab_ui.html` in your browser to use the UI.
 
+### Running tests
+Create and activate a Python virtual environment before running the test suite.
+You can use the helper script `./devlab_venv.sh` to set up the environment.
+Then install `pytest` and execute the tests:
+
+```bash
+pip install pytest
+pytest -q
+```
+
 ### Contributing
 Contributions are welcome! Fork the repository, create a feature branch and open a pull request.
 
@@ -165,6 +175,15 @@ devlab-server
 Příkaz spustí `uvicorn` s aplikací ``devlab.app:app``.
 
 Poté otevřete `http://127.0.0.1:8000/devlab_ui.html` ve webovém prohlížeči.
+
+### Spouštění testů
+Před spuštěním testů vytvořte a aktivujte virtuální prostředí. Můžete využít
+pomocný skript `./devlab_venv.sh`. Pak nainstalujte `pytest` a spusťte testy:
+
+```bash
+pip install pytest
+pytest -q
+```
 
 ### Jak přispět
 Budeme rádi za pull requesty. Forkněte repozitář, vytvořte větev a odešlete návrh ke schválení.
