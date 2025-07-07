@@ -51,3 +51,12 @@ def test_log_output_unique_files(tmp_path: pathlib.Path) -> None:
     logs = sorted(engine.log_dir.glob("*.log"))
     assert len(logs) == 2
     assert logs[0].name != logs[1].name
+
+
+
+
+def test_missing_config(tmp_path: pathlib.Path) -> None:
+    missing = tmp_path / "does_not_exist.json"
+    with pytest.raises(FileNotFoundError) as excinfo:
+        DevEngine(missing)
+    assert "Configuration file not found" in str(excinfo.value)
