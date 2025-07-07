@@ -1,6 +1,6 @@
 import pathlib
 import sys
-from types import SimpleNamespace
+import pytest
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 
@@ -28,3 +28,11 @@ def test_cli_config(tmp_path, monkeypatch, capsys):
     cli.main()
 
     assert engine.config_path == cfg
+
+
+def test_cli_runtime_check(monkeypatch):
+    monkeypatch.setattr(cli, "detect_externally_managed_python", lambda: True)
+    monkeypatch.setattr(sys, "argv", ["devlab-cli", "hello"])
+
+    with pytest.raises(SystemExit):
+        cli.main()

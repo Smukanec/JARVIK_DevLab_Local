@@ -38,6 +38,10 @@ script creates (or reuses) a local `.venv`, installs the dependencies and runs
 `install.sh` by default before launching `devlab-cli`. Pass `upgrade` as the
 first argument to have the helper run `upgrade.sh` instead of `install.sh`.
 
+Running `devlab-cli` or `devlab-server` directly on systems with an externally
+managed Python installation will fail with an error. Use the `devlab_venv.sh`
+helper or create and activate a virtual environment before launching the tools.
+
 ### Basic usage
 ```python
 from devlab.manager import DevLabManager
@@ -124,6 +128,11 @@ Pro rychlý start můžete použít pomocný skript `./devlab_venv.sh`. Ten
 vytvoří (nebo znovu použije) lokální adresář `.venv`, nainstaluje závislosti a
 standardně spustí `install.sh` před spuštěním `devlab-cli`. Pokud jako první
 argument předáte `upgrade`, skript místo toho spustí `upgrade.sh`.
+
+Přímé spuštění `devlab-cli` nebo `devlab-server` na systémech s externě
+spravovanou instalací Pythonu skončí chybou. Pro úspěšný start použijte
+skript `devlab_venv.sh` nebo si ručně vytvořte a aktivujte virtuální
+prostředí.
 
 ### Základní použití
 ```python
