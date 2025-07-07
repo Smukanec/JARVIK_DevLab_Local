@@ -24,14 +24,14 @@ class Pipeline:
         self.log_dir = log_dir or Path(__file__).with_name("logs")
         self.log_dir.mkdir(exist_ok=True)
 
-        # initialize logger for recording pipeline issues
-        self.logger = logging.getLogger(__name__)
-        if not self.logger.handlers:
-            handler = logging.FileHandler(self.log_dir / "errors.log")
-            handler.setFormatter(
-                logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
-            )
-            self.logger.addHandler(handler)
+        # initialize a dedicated logger for this pipeline instance
+        self.logger = logging.getLogger(f"{__name__}.{id(self)}")
+        self.logger.handlers.clear()
+        handler = logging.FileHandler(self.log_dir / "errors.log")
+        handler.setFormatter(
+            logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
+        )
+        self.logger.addHandler(handler)
         self.logger.setLevel(logging.INFO)
         self.logger.propagate = False
 

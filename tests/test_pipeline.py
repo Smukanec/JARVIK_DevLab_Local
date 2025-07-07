@@ -7,6 +7,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 
 from devlab.pipeline import Pipeline
 from devlab.dev_engine import DevEngine
+import devlab.pipeline as pipeline_mod
 
 
 def _create_config(tmpdir: pathlib.Path) -> pathlib.Path:
@@ -45,6 +46,29 @@ def test_pipeline_unique_logs(tmp_path):
     logs = sorted(tmp_path.glob("*_pipeline.log"))
     assert len(logs) == 2
     assert logs[0].name != logs[1].name
+
+
+def test_pipeline_separate_error_logs(tmp_path, monkeypatch):
+    dir1 = tmp_path / "one"
+    dir2 = tmp_path / "two"
+    p1 = Pipeline("", log_dir=dir1)
+    p2 = Pipeline("", log_dir=dir2)
+
+    def fail(*args, **kwargs):
+        raise pipeline_mod.requests.RequestException("boom")
+
+    monkeypatch.setattr(pipeline_mod.requests, "post", fail)
+
+    p1._run_model("m", "x")
+    p2._run_model("m", "x")
+
+    log1 = dir1 / "errors.log"
+    log2 = dir2 / "errors.log"
+    assert log1.is_file()
+    assert log2.is_file()
+    assert log1 != log2
+    assert log1.read_text()
+    assert log2.read_text()
 
 
 def test_export_functions(tmp_path):
