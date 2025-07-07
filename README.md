@@ -24,6 +24,7 @@ cd devlab
 python3 -m venv .venv
 source .venv/bin/activate
 ```
+Alternatively, run `./create_venv.sh` to perform these steps automatically.
 3. Install Python dependencies
 ```bash
 pip install -r requirements.txt
@@ -115,6 +116,7 @@ cd devlab
 python3 -m venv .venv
 source .venv/bin/activate
 ```
+Případně můžete spustit `./create_venv.sh`, který kroky provede automaticky.
 3. Nainstalujte Python závislosti
 ```bash
 pip install -r requirements.txt
