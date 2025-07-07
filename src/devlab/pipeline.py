@@ -69,7 +69,9 @@ class Pipeline:
 
     def _log_selection(self, language: str, models: List[str]) -> None:
         """Write the chosen language and models into the log directory."""
-        timestamp = datetime.utcnow().strftime("%Y%m%d%H%M%S")
+        # use microsecond precision to avoid log filename collisions when
+        # multiple pipeline runs happen within the same second
+        timestamp = datetime.utcnow().strftime("%Y%m%d%H%M%S%f")
         path = self.log_dir / f"{timestamp}_pipeline.log"
         with path.open("w", encoding="utf-8") as fh:
             fh.write(f"language: {language}\n")

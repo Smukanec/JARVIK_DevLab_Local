@@ -38,6 +38,15 @@ def test_pipeline_model_selection(tmp_path, prompt, language, models):
     assert f"models: {', '.join(models)}" in content
 
 
+def test_pipeline_unique_logs(tmp_path):
+    pipeline = Pipeline("", log_dir=tmp_path)
+    pipeline.run("print('a')")
+    pipeline.run("print('b')")
+    logs = sorted(tmp_path.glob("*_pipeline.log"))
+    assert len(logs) == 2
+    assert logs[0].name != logs[1].name
+
+
 def test_export_functions(tmp_path):
     cfg = _create_config(tmp_path)
     engine = DevEngine(cfg)
