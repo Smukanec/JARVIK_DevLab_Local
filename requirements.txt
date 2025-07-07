@@ -1,3 +1,5 @@
 # Runtime dependencies for devlab
 requests
+fastapi
+uvicorn
 
