@@ -6,7 +6,8 @@ class CodeValidator:
     def validate(self, code: str) -> bool:
         """Validate generated code.
 
-        TODO: Implement real validation checks.
+        The current implementation performs a trivial check ensuring the
+        supplied string is not empty. It serves as a minimal working
+        validator until more advanced logic is added.
         """
-        # Always return True for now.
-        return True
+        return bool(code and code.strip())
