@@ -11,7 +11,11 @@ license = {file = "LICENSE"}
 authors = [
     {name = "Jarvik Developers", email = "devs@example.com"}
 ]
-dependencies = ["requests"]
+dependencies = [
+    "requests",
+    "fastapi",
+    "uvicorn",
+]
 
 [tool.setuptools]
 package-dir = {"" = "src"}
