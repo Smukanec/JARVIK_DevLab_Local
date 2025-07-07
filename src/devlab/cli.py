@@ -1,4 +1,5 @@
 import argparse
+from pathlib import Path
 
 from .dev_engine import DevEngine
 
@@ -11,7 +12,8 @@ def main() -> None:
     parser.add_argument("--log", action="store_true", help="Log output to file")
     args = parser.parse_args()
 
-    engine = DevEngine(config_path=args.config)
+    cfg_path = Path(args.config) if args.config is not None else None
+    engine = DevEngine(config_path=cfg_path)
     if args.prompt:
         print(engine.run(args.prompt, log=args.log))
         return
