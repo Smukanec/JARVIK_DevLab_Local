@@ -69,7 +69,9 @@ class DevEngine:
             json.dump(entry, fh, ensure_ascii=False, indent=2)
 
     def _log_output(self, text: str) -> None:
-        timestamp = datetime.utcnow().strftime("%Y%m%d%H%M%S")
+        # use microsecond precision to avoid log filename collisions when
+        # multiple logs are written within the same second
+        timestamp = datetime.utcnow().strftime("%Y%m%d%H%M%S%f")
         path = self.log_dir / f"{timestamp}.log"
         with path.open("w", encoding="utf-8") as fh:
             fh.write(text)

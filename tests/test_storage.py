@@ -37,3 +37,17 @@ def test_knowledge_db_unique_files(tmp_path: pathlib.Path) -> None:
     assert p1 != p2
     files = sorted(tmp_path.glob("*.json"))
     assert len(files) == 2
+
+
+def test_log_output_unique_files(tmp_path: pathlib.Path) -> None:
+    cfg = _create_config(tmp_path)
+    engine = DevEngine(cfg)
+    engine.log_dir = tmp_path / "logs"
+    engine.log_dir.mkdir(exist_ok=True)
+
+    engine._log_output("one")
+    engine._log_output("two")
+
+    logs = sorted(engine.log_dir.glob("*.log"))
+    assert len(logs) == 2
+    assert logs[0].name != logs[1].name
