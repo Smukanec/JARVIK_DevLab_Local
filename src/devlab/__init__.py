@@ -6,7 +6,7 @@ from .manager import DevLabManager
 from .dev_engine import DevEngine
 from .pipeline import Pipeline
 from .github_connector import commit_file, open_pull_request
-from .utils import detect_language
+from .utils import detect_language, detect_externally_managed_python
 
 __all__ = [
     "CodeGenerator",
@@ -17,4 +17,5 @@ __all__ = [
     "commit_file",
     "open_pull_request",
     "detect_language",
+    "detect_externally_managed_python",
 ]

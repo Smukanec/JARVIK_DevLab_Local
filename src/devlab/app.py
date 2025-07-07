@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 from pathlib import Path
+import sys
 
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from devlab.dev_engine import DevEngine
+from devlab.utils import detect_externally_managed_python
 
 app = FastAPI()
 
@@ -41,6 +43,14 @@ async def export_knowledge() -> FileResponse:
 
 def main() -> None:
     """Entry point for the ``devlab-server`` console script."""
+    if detect_externally_managed_python():
+        print(
+            "Error: detected externally managed Python installation. "
+            "Create and activate a virtual environment or run ./devlab_venv.sh.",
+            file=sys.stderr,
+        )
+        raise SystemExit(1)
+
     import uvicorn
 
     uvicorn.run("devlab.app:app")
