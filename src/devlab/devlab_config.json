@@ -1,5 +1,5 @@
 {
   "url": "http://localhost:8000",
-  "memory_path": "dev_memory",
-  "knowledge_path": "knowledge_db"
+  "memory_path": "~/.devlab/dev_memory",
+  "knowledge_path": "~/.devlab/knowledge_db"
 }

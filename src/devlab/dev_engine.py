@@ -13,6 +13,7 @@ from typing import Any, Dict, List
 
 from .pipeline import Pipeline
 from .knowledge_db import KnowledgeDB
+import os
 
 _CONFIG_PATH = Path(__file__).with_name("devlab_config.json")
 
@@ -34,12 +35,14 @@ class DevEngine:
         cfg_path = config_path or _CONFIG_PATH
         self.config = _load_config(cfg_path)
 
-        mem_path = self.config.get("memory_path", "dev_memory")
+        mem_path = os.path.expandvars(self.config.get("memory_path", "dev_memory"))
+        mem_path = os.path.expanduser(mem_path)
         self.memory_dir = Path(mem_path)
         if not self.memory_dir.is_absolute():
             self.memory_dir = Path(__file__).with_name(mem_path)
 
-        know_path = self.config.get("knowledge_path", "knowledge_db")
+        know_path = os.path.expandvars(self.config.get("knowledge_path", "knowledge_db"))
+        know_path = os.path.expanduser(know_path)
         self.knowledge_dir = Path(know_path)
         if not self.knowledge_dir.is_absolute():
             self.knowledge_dir = Path(__file__).with_name(know_path)
