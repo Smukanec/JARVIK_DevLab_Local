@@ -93,3 +93,8 @@ cython_debug/
 # Build outputs
 out/
 
+# DevLab generated data
+dev_memory/
+knowledge_db/
+logs/
+
