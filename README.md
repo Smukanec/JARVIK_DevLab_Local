@@ -44,6 +44,11 @@ Running `devlab-cli` or `devlab-server` directly on systems with an externally
 managed Python installation will fail with an error. Use the `devlab_venv.sh`
 helper or create and activate a virtual environment before launching the tools.
 
+When installed system-wide, the default directories `dev_memory/` and
+`knowledge_db/` reside inside the package and may not be writable. Adjust
+`src/devlab/devlab_config.json` or pass `--config` to `devlab-cli` to point to
+writable locations such as `~/.devlab/`.
+
 ### Basic usage
 ```python
 from devlab.manager import DevLabManager
@@ -147,6 +152,11 @@ Přímé spuštění `devlab-cli` nebo `devlab-server` na systémech s externě
 spravovanou instalací Pythonu skončí chybou. Pro úspěšný start použijte
 skript `devlab_venv.sh` nebo si ručně vytvořte a aktivujte virtuální
 prostředí.
+
+Při systémové instalaci mohou být výchozí složky `dev_memory/` a
+`knowledge_db/` pouze pro čtení, protože leží uvnitř balíčku. Upravením
+`src/devlab/devlab_config.json` nebo parametrem `--config` u `devlab-cli`
+nastavte cesty do zapisovatelného místa, například `~/.devlab/`.
 
 ### Základní použití
 ```python
