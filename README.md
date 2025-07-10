@@ -75,7 +75,7 @@ You can save DevLab context for later review:
 * **Export memory** – compresses the `dev_memory/` directory into a `memory_export.zip` archive by calling `DevEngine.export_memory()`.
 * **Export knowledge** – collects all entries from `knowledge_db/` into `knowledge_export.json` using `DevEngine.export_knowledge()`.
 
-Open `devlab/ui/devlab_ui.html` and use the provided links, or call the methods directly in your Python code.
+Open `http://127.0.0.1:8000/` and use the provided links, or call the methods directly in your Python code.
 
 ### Web server and UI
 Start the bundled FastAPI server with:
@@ -86,7 +86,7 @@ devlab-server
 This command launches `uvicorn` with the ``devlab.app:app`` application.
 
 The server listens on `http://127.0.0.1:8000`. Open
-`http://127.0.0.1:8000/devlab_ui.html` in your browser to use the UI.
+`http://127.0.0.1:8000/` in your browser to use the UI.
 
 ### Running tests
 Create and activate a Python virtual environment before running the test suite.
@@ -184,7 +184,7 @@ devlab-server
 ```
 Příkaz spustí `uvicorn` s aplikací ``devlab.app:app``.
 
-Poté otevřete `http://127.0.0.1:8000/devlab_ui.html` ve webovém prohlížeči.
+Poté otevřete `http://127.0.0.1:8000/` ve webovém prohlížeči.
 
 ### Spouštění testů
 Před spuštěním testů vytvořte a aktivujte virtuální prostředí. Můžete využít

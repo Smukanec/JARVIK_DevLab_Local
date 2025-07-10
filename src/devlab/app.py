@@ -14,7 +14,12 @@ app = FastAPI()
 
 # Serve the minimal UI bundled in devlab/ui
 _UI_DIR = Path(__file__).resolve().parent / "ui"
-app.mount("/", StaticFiles(directory=_UI_DIR), name="static")
+app.mount("/ui", StaticFiles(directory=_UI_DIR), name="static")
+
+@app.get("/")
+async def ui_root() -> FileResponse:
+    """Return the bundled HTML UI."""
+    return FileResponse(_UI_DIR / "devlab_ui.html")
 
 
 @app.post("/ask")
