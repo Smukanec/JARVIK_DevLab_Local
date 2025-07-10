@@ -2,7 +2,7 @@
 # Upgrade devlab to the latest available version
 set -euo pipefail
 
-# Exit if running under an externally managed Python without virtualenv
+# Automatically handle externally managed Python installations
 if [ -z "${VIRTUAL_ENV:-}" ]; then
     if python3 - <<'EOF'
 import sysconfig, pathlib, sys
@@ -13,10 +13,9 @@ for parent in [p] + list(p.parents):
 sys.exit(1)
 EOF
     then
-        echo "Error: detected externally managed Python installation." >&2
-        echo "Create and activate a virtual environment before running install.sh or upgrade.sh." >&2
-        echo "Run ./devlab_venv.sh to create and activate a virtual environment automatically." >&2
-        exit 1
+        echo "Detected externally managed Python installation." >&2
+        echo "Creating a local virtual environment via ./devlab_venv.sh upgrade" >&2
+        exec "$(dirname "$0")/devlab_venv.sh" upgrade "$@"
     fi
 fi
 
