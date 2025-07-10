@@ -25,7 +25,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 Alternatively, run `./create_venv.sh` to perform these steps automatically.
-**Note:** Systems lacking the `python3-venv` or `pip` packages may produce errors like "No module named pip". Install the relevant OS packages (e.g. `python3-venv` and `python3-pip` on Debian/Ubuntu) or run `python3 -m ensurepip`.
+**Note:** Systems lacking the `python3-venv` or `pip` packages may produce errors like "No module named pip". If `./create_venv.sh` reports ".venv/bin/activate: No such file or directory", your Python installation is incomplete. Install the relevant OS packages (e.g. `python3-venv` and `python3-pip` on Debian/Ubuntu) or run `python3 -m ensurepip --upgrade`.
 3. Install Python dependencies
 ```bash
 pip install -r requirements.txt
@@ -133,7 +133,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 ```
 Případně můžete spustit `./create_venv.sh`, který kroky provede automaticky.
-**Poznámka:** Na systémech bez balíčků `python3-venv` nebo `pip` se může objevit chyba "No module named pip". Nainstalujte potřebné balíčky systému (např. `python3-venv` a `python3-pip` na Debianu/Ubuntu) nebo spusťte `python3 -m ensurepip`.
+**Poznámka:** Na systémech bez balíčků `python3-venv` nebo `pip` se může objevit chyba "No module named pip". Pokud `./create_venv.sh` vypíše ".venv/bin/activate: No such file or directory", pravděpodobně máte nekompletní instalaci Pythonu. Nainstalujte potřebné balíčky (např. `python3-venv` a `python3-pip` na Debianu/Ubuntu) nebo spusťte `python3 -m ensurepip --upgrade`.
 3. Nainstalujte Python závislosti
 ```bash
 pip install -r requirements.txt
