@@ -21,7 +21,7 @@ if [ ! -d "$VENV_DIR" ]; then
     echo "Creating virtual environment in $VENV_DIR"
     python3 -m venv "$VENV_DIR"
     if [ ! -f "$VENV_DIR/bin/activate" ]; then
-        echo "Failed to create virtual environment – install python3-venv or run 'python3 -m ensurepip --upgrade'" >&2
+        echo "Failed to create virtual environment – install the python3-venv and python3-pip packages or run 'python3 -m ensurepip --upgrade'" >&2
         exit 1
     fi
 fi
