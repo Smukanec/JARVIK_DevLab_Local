@@ -19,7 +19,8 @@ cd devlab
 2. Create and activate a Python virtual environment. This is required on systems
    that implement [PEP 668](https://peps.python.org/pep-0668/) with an
    externally managed Python installation. Keep the environment active when
-   running `install.sh` or `upgrade.sh`.
+   running `install.sh`. The `upgrade.sh` script will create its own
+   environment when necessary.
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
@@ -33,7 +34,9 @@ pip install -r requirements.txt
 4. With the virtual environment still active, run `./install.sh` to install the
    package locally
 
-5. With the virtual environment active, run `./upgrade.sh` to update to the newest release
+5. Run `./upgrade.sh` to update to the newest release. The script automatically
+   creates a local virtual environment on systems with an externally managed
+   Python installation.
 
 You can optionally start DevLab using the helper script `./devlab_venv.sh`. The
 script creates (or reuses) a local `.venv`, installs the dependencies and runs
@@ -127,7 +130,8 @@ cd devlab
 ```
 2. Vytvořte a aktivujte virtuální prostředí. Na systémech s
    [PEP 668](https://peps.python.org/pep-0668/) je to nutné. Prostředí
-   ponechte aktivní při spouštění `install.sh` nebo `upgrade.sh`.
+   ponechte aktivní při spouštění `install.sh`. Skript `upgrade.sh` si
+   případně vytvoří vlastní prostředí.
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
@@ -140,8 +144,9 @@ pip install -r requirements.txt
 ```
 4. Se stále aktivním virtuálním prostředím spusťte `./install.sh` pro lokální
    instalaci balíčku
-5. Pro aktualizaci na nejnovější verzi aktivujte virtuální prostředí a
-   spusťte `./upgrade.sh`
+5. Pro aktualizaci na nejnovější verzi spusťte `./upgrade.sh`. Skript
+   na systémech s externě spravovanou instalací Pythonu automaticky
+   vytvoří místní virtuální prostředí.
 
 Pro rychlý start můžete použít pomocný skript `./devlab_venv.sh`. Ten
 vytvoří (nebo znovu použije) lokální adresář `.venv`, nainstaluje závislosti a
