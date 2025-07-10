@@ -60,3 +60,23 @@ def test_missing_config(tmp_path: pathlib.Path) -> None:
     with pytest.raises(FileNotFoundError) as excinfo:
         DevEngine(missing)
     assert "Configuration file not found" in str(excinfo.value)
+
+
+def test_nested_directory_creation(tmp_path: pathlib.Path) -> None:
+    base = tmp_path / "nested" / "dirs"
+    mem_dir = base / "memory" / "data"
+    know_dir = base / "knowledge" / "db"
+    cfg = {
+        "url": "",
+        "memory_path": str(mem_dir),
+        "knowledge_path": str(know_dir),
+    }
+    config_path = tmp_path / "config_nested.json"
+    with config_path.open("w", encoding="utf-8") as fh:
+        json.dump(cfg, fh)
+
+    engine = DevEngine(config_path)
+
+    assert mem_dir.is_dir()
+    assert know_dir.is_dir()
+    assert engine.log_dir.is_dir()

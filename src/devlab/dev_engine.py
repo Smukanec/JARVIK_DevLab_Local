@@ -49,9 +49,9 @@ class DevEngine:
 
         self.log_dir = Path(__file__).with_name("logs")
 
-        self.memory_dir.mkdir(exist_ok=True)
-        self.log_dir.mkdir(exist_ok=True)
-        self.knowledge_dir.mkdir(exist_ok=True)
+        self.memory_dir.mkdir(parents=True, exist_ok=True)
+        self.log_dir.mkdir(parents=True, exist_ok=True)
+        self.knowledge_dir.mkdir(parents=True, exist_ok=True)
 
         self.knowledge_db = KnowledgeDB(self.knowledge_dir)
 
